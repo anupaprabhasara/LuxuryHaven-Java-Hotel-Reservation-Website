@@ -23,7 +23,7 @@ public class AdminLoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession(false);
         if (session != null && session.getAttribute("admin") != null) {
-            response.sendRedirect(request.getContextPath() + "/admin/admin");
+            response.sendRedirect(request.getContextPath() + "/admin/reservation");
             return;
         }
 
@@ -37,7 +37,7 @@ public class AdminLoginServlet extends HttpServlet {
             session.setAttribute("adminEmail", admin.getEmail());
             session.setMaxInactiveInterval(30 * 60); // 30 minutes
 
-            response.sendRedirect(request.getContextPath() + "/admin/admin");
+            response.sendRedirect(request.getContextPath() + "/admin/reservation");
         } else {
             request.setAttribute("error", "Invalid email or password.");
             request.getRequestDispatcher("/admin/login.jsp").forward(request, response);
@@ -50,7 +50,7 @@ public class AdminLoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession(false);
         if (session != null && session.getAttribute("admin") != null) {
-            response.sendRedirect(request.getContextPath() + "/admin/admin");
+            response.sendRedirect(request.getContextPath() + "/admin/reservation");
         } else {
             request.getRequestDispatcher("/admin/login.jsp").forward(request, response);
         }
