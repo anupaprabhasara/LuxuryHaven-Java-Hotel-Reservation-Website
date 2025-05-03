@@ -6,11 +6,11 @@
         <p class="text-sm text-gray-400">Admin Panel</p>
     </div>
     <nav id="sidebarNav" class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
-        <a href="${pageContext.request.contextPath}/admin/dashboard.jsp" class="flex items-center p-3 rounded hover:bg-yellow-900 transition"><i class="fas fa-home mr-3"></i> Dashboard</a>
         <a href="${pageContext.request.contextPath}/admin/room" class="flex items-center p-3 rounded hover:bg-yellow-900 transition"><i class="fas fa-bed mr-3"></i> Rooms</a>
         <a href="${pageContext.request.contextPath}/admin/reservation" class="flex items-center p-3 rounded hover:bg-yellow-900 transition"><i class="fas fa-calendar-check mr-3"></i> Reservations</a>
         <a href="${pageContext.request.contextPath}/admin/user" class="flex items-center p-3 rounded hover:bg-yellow-900 transition"><i class="fas fa-users mr-3"></i> Users</a>
         <a href="${pageContext.request.contextPath}/admin/admin" class="flex items-center p-3 rounded hover:bg-yellow-900 transition"><i class="fas fa-users-cog mr-3"></i> Admins</a>
+        <a href="${pageContext.request.contextPath}/admin/feedback" class="flex items-center p-3 rounded hover:bg-yellow-900 transition"><i class="fas fa-comment-dots mr-3"></i> Feedbacks</a>
     </nav>
     <div class="p-4 border-t border-gray-700">
         <button onclick="logout()" class="w-full flex items-center justify-center text-red-500 hover:text-red-400 font-semibold transition">
