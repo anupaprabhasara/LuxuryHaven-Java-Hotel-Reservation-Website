@@ -12,14 +12,7 @@
 <body class="bg-gray-100 text-gray-900 font-sans">
 
 <!-- Header -->
-<c:choose>
-  <c:when test="${isLoggedIn}">
-    <jsp:include page="./partials/sessionheader.jsp" />
-  </c:when>
-  <c:otherwise>
-    <jsp:include page="./partials/header.jsp" />
-  </c:otherwise>
-</c:choose>
+<%@ include file="./partials/sessionheader.jsp" %>
 
 <main class="py-16">
   <div class="max-w-lg mx-auto bg-white p-10 rounded-lg shadow-md">
