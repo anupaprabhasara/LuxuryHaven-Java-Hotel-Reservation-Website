@@ -39,7 +39,34 @@ public class ReservationService {
         }
         return false;
     }
-
+    
+    // Get Reservation by User ID
+    public List<Reservation> getReservationsByUserId(int userId) {
+        List<Reservation> reservations = new ArrayList<>();
+        String query = "SELECT * FROM reservation_details_view WHERE reservation_id IN " +
+                       "(SELECT reservation_id FROM reservations WHERE user_id = ?) ORDER BY check_in_date DESC";
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Reservation r = new Reservation();
+                r.setReservationId(rs.getInt("reservation_id"));
+                r.setGuestName(rs.getString("guest_name"));
+                r.setRoomNumber(rs.getString("room_number"));
+                r.setRoomType(rs.getString("room_type"));
+                r.setCheckInDate(rs.getString("check_in_date"));
+                r.setCheckOutDate(rs.getString("check_out_date"));
+                r.setStatus(rs.getString("status"));
+                r.setCreatedAt(rs.getString("created_at"));
+                reservations.add(r);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return reservations;
+    }
+    
     // Get Reservation by ID
     public Reservation getReservationById(int id) {
         String query = "SELECT * FROM reservation_details_view WHERE reservation_id = ?";

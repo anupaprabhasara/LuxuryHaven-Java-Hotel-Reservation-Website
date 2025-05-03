@@ -34,6 +34,7 @@ public class UserSettingsServlet extends HttpServlet {
         if (user != null) {
             request.setAttribute("user", user);
             request.setAttribute("isLoggedIn", true);
+            request.setAttribute("userFullName", session.getAttribute("userFullNameSession"));
             request.getRequestDispatcher("/client/settings.jsp").forward(request, response);
         } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "User not found.");
